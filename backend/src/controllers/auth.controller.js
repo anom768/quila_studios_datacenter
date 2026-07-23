@@ -32,7 +32,7 @@ const login = async (req, res, next) => {
 const register = async (req, res, next) => {
   try {
     const user = await authApplication.registerUseCase(req.body);
-    sendSuccess(res, user, 201);
+    sendSuccess(res, user, undefined, 201);
   } catch (error) {
     next(error);
   }
