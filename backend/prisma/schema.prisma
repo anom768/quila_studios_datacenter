@@ -16,3 +16,29 @@ model User {
 
   @@map("users")
 }
+
+model Staff {
+  id             Int       @id @default(autoincrement())
+  staffId        String    @unique              // e.g. "QS001", "IN001"
+  photoPath      String?                         // relative path under uploads/staff-photos/
+  fullName       String
+  position       String                           // "IT Staff" | "Management" | "Comic Mentor" | "3D Mentor"
+  phoneNumber    String
+  email          String    @unique
+  joinDate       DateTime
+  exitDate       DateTime?
+  status         String    @default("Active")    // "Active" | "Inactive" | "Resigned"
+  employmentType String                           // "Permanent" | "Contract" | "Internship"
+  createdAt      DateTime  @default(now())
+
+  @@map("staff")
+}
+
+// Tracks the next sequence number per staffId prefix (QS or IN), so ID
+// generation is race-condition-safe under concurrent requests.
+model StaffIdCounter {
+  prefix        String @id   // "QS" or "IN"
+  lastSequence  Int    @default(0)
+
+  @@map("staff_id_counters")
+}
