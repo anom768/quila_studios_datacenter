@@ -15,6 +15,7 @@ export async function fetchAPI(endpoint, options = {}) {
 
   const config = {
     ...options,
+    credentials: 'include',
     headers: {
       ...defaultHeaders,
       ...options.headers,
