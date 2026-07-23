@@ -24,7 +24,6 @@ const createUser = async (data) => prisma.user.create({
       username: true,
       role: true,
       createdAt: true,
-      updatedAt: true,
     },
   });
 
