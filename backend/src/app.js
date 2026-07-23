@@ -12,6 +12,8 @@ const NotFoundError = require('./errors/NotFoundError');
 
 const app = express();
 
+app.set('trust proxy', 1);
+
 // Core Middleware
 app.use(helmet());
 app.use(cors({
