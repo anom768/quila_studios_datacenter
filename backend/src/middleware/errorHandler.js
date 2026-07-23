@@ -1,5 +1,6 @@
 const AppError = require('../errors/AppError');
 const { sendError } = require('../utils/response');
+const config = require('../config');
 
 /**
  * Global Express error handling middleware
@@ -14,7 +15,12 @@ const errorHandler = (err, req, res, next) => {
 
   // Handle unexpected or internal errors
   const statusCode = err.statusCode || 500;
-  const message = err.message || 'Internal Server Error';
+  
+  let message = err.message || 'Internal Server Error';
+  if (statusCode === 500 && config.env === 'production') {
+    message = 'Internal Server Error';
+  }
+
   return sendError(res, statusCode, message);
 };
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const helmet = require('helmet');
 const config = require('./config');
 const healthRoutes = require('./routes/health.routes');
 const authRoutes = require('./routes/auth.routes');
@@ -10,6 +11,7 @@ const NotFoundError = require('./errors/NotFoundError');
 const app = express();
 
 // Core Middleware
+app.use(helmet());
 app.use(cors({
   origin: config.frontendUrl,
   credentials: true,

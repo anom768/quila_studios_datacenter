@@ -1,3 +1,4 @@
+const ms = require('ms');
 const authApplication = require('../application/auth.application');
 const config = require('../config');
 const { sendSuccess } = require('../utils/response');
@@ -12,8 +13,8 @@ const login = async (req, res, next) => {
     res.cookie('quila_token', token, {
       httpOnly: true,
       secure: config.env === 'production',
-      sameSite: 'lax',
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+      sameSite: 'strict',
+      maxAge: ms(config.jwtExpiresIn), // parse '7d' or '1h' to ms
     });
 
     // Decoding token to send user info back
