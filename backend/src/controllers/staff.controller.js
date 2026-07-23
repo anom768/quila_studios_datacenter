@@ -1,4 +1,5 @@
 const staffApplication = require('../application/staff.application');
+const ValidationError = require('../errors/ValidationError');
 const { sendSuccess } = require('../utils/response');
 
 const createStaff = async (req, res, next) => {
@@ -49,7 +50,7 @@ const deleteStaff = async (req, res, next) => {
 const uploadPhoto = async (req, res, next) => {
   try {
     if (!req.file) {
-      return res.status(400).json({ success: false, error: 'No photo uploaded or invalid file format' });
+      throw new ValidationError('No photo uploaded or invalid file format');
     }
     const staff = await staffApplication.uploadPhoto(req.params.id, req.file);
     return sendSuccess(res, staff, 'Staff photo uploaded successfully');
