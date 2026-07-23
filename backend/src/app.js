@@ -1,17 +1,25 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const config = require('./config');
 const healthRoutes = require('./routes/health.routes');
+const authRoutes = require('./routes/auth.routes');
 const errorHandler = require('./middleware/errorHandler');
 const NotFoundError = require('./errors/NotFoundError');
 
 const app = express();
 
 // Core Middleware
-app.use(cors());
+app.use(cors({
+  origin: config.frontendUrl,
+  credentials: true,
+}));
+app.use(cookieParser());
 app.use(express.json());
 
 // Routes
 app.use('/api', healthRoutes);
+app.use('/api/auth', authRoutes);
 
 // Handle unknown routes
 app.use((req, res, next) => {
