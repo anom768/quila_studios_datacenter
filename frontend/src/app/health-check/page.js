@@ -22,6 +22,7 @@ export default function HealthCheckPage() {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line
     checkHealth();
   }, []);
 
