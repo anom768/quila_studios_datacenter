@@ -1,6 +1,6 @@
-const { PrismaClient } = require('@prisma/client');
 
-const prisma = new PrismaClient();
+
+const prisma = require('../config/prisma');
 
 /**
  * Generates a race-condition-safe staff ID inside a transaction.
