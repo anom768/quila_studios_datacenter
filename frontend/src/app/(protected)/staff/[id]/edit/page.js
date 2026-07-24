@@ -97,7 +97,7 @@ export default function EditStaffPage({ params }) {
           <div className="h-24 w-24 flex-shrink-0 bg-gray-100 rounded-lg overflow-hidden border">
             {staff.photoPath ? (
               <img 
-                src={`${API_URL}/uploads/${staff.photoPath}?t=${timestamp}`} 
+                src={`${API_URL}/${staff.photoPath}?t=${timestamp}`} 
                 alt="Staff Photo" 
                 className="h-full w-full object-cover" 
               />
