@@ -1,9 +1,10 @@
 const multer = require('multer');
 const path = require('path');
+const config = require('../config');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../../uploads/staff-photos'));
+    cb(null, path.join(__dirname, '../../', config.uploadDir));
   },
   filename: (req, file, cb) => {
     // We expect req.staff to be populated by a previous middleware

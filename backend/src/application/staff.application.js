@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const staffService = require('../services/staffService');
 const NotFoundError = require('../errors/NotFoundError');
+const config = require('../config');
 
 /**
  * Handle staff creation
@@ -63,7 +64,7 @@ const updateStaff = async (id, data) => {
  */
 const deletePhotoFile = (photoPath) => {
   if (!photoPath) return;
-  const absolutePath = path.join(__dirname, '../../uploads/staff-photos', path.basename(photoPath));
+  const absolutePath = path.join(__dirname, '../../', photoPath);
   if (fs.existsSync(absolutePath)) {
     try {
       fs.unlinkSync(absolutePath);
@@ -100,7 +101,7 @@ const uploadPhoto = async (id, file) => {
     deletePhotoFile(staff.photoPath);
   }
 
-  const newPhotoPath = `staff-photos/${file.filename}`;
+  const newPhotoPath = `${config.uploadDir}/${file.filename}`;
   const updatedStaff = await staffService.updateStaff(Number(id), { photoPath: newPhotoPath });
 
   return updatedStaff;
