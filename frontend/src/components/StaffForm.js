@@ -134,24 +134,32 @@ export default function StaffForm({ mode, initialData, onSubmit, error }) {
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           <div>
-            <label className="block text-sm font-medium text-gray-700">Join Date *</label>
+            <label htmlFor="joinDate" className="block text-sm font-medium text-gray-700">Join Date *</label>
             <input
+              id="joinDate"
               type="date"
               name="joinDate"
               value={formData.joinDate}
               onChange={handleChange}
-              className="mt-1 w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border"
+              onClick={(e) => {
+                if (e.target.showPicker) e.target.showPicker();
+              }}
+              className="mt-1 w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border cursor-pointer"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700">Exit Date</label>
+            <label htmlFor="exitDate" className="block text-sm font-medium text-gray-700">Exit Date</label>
             <input
+              id="exitDate"
               type="date"
               name="exitDate"
               value={formData.exitDate}
               onChange={handleChange}
-              className="mt-1 w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border"
+              onClick={(e) => {
+                if (e.target.showPicker) e.target.showPicker();
+              }}
+              className="mt-1 w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 p-2 border cursor-pointer"
             />
           </div>
         </div>
