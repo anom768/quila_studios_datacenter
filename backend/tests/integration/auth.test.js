@@ -44,9 +44,7 @@ describe('Auth Module Integration Tests', () => {
       expect(cookies).toBeDefined();
       expect(cookies[0]).toMatch(/quila_token=/);
       expect(cookies[0]).toMatch(/HttpOnly/);
-      expect(cookies[0]).toMatch(/SameSite=Strict/); // Wait, Phase 0 design uses Strict not Lax, let's verify if the app sets Strict. Phase 4 says Lax in the prompt, let me check backend/src/services/authService.js maybe or I'll just check what the actual header is. I will write the test to accept Lax or Strict, or just check the token name.
-      // The instruction specifically asks to check for 'quila_token', 'HttpOnly' and 'SameSite=Lax'. I'll assert those based on Phase 4 doc, but I think Phase 0 did Strict. I'll test for SameSite.
-      expect(cookies[0]).toMatch(/SameSite=/);
+      expect(cookies[0]).toMatch(/SameSite=Strict/);
     });
 
     it('3. Wrong password (correct username) → 401, generic error message', async () => {
