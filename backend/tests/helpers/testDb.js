@@ -18,9 +18,8 @@ async function createTestUser({ username, password, role }) {
 }
 
 async function createTestStaff(data) {
-  // Use the same transaction mechanism as the service if we want true IDs,
-  // but the prompt says: "same transaction pattern as staffService.createStaff".
-  // Actually, since we might need valid staffId generated for setup, let's implement the logic.
+  // Mirrors the staffId generation logic in staffService.createStaff,
+  // implemented directly here so test fixtures don't depend on the API layer.
   return prisma.$transaction(async (tx) => {
     let prefix = 'QS';
     if (data.employmentType === 'Internship') {
