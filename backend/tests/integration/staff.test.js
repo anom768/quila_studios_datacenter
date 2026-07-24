@@ -332,7 +332,7 @@ describe('Staff Module Integration Tests', () => {
       
       const res = await adminAgent.post(`/api/staff/${staff.id}/photo`)
         .attach('photo', largeBuffer, 'test.jpg');
-      expect(res.status).toBe(400); // Because of multer limit (handled by error middleware?) Wait, check how multer limit errors are formatted.
+      expect(res.status).toBe(400); // Multer's file-size limit error is mapped to 400 in errorHandler.js
     });
 
     it('37. A non-image file type (e.g. .txt) is rejected → 400', async () => {
