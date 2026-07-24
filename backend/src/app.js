@@ -15,7 +15,9 @@ const app = express();
 app.set('trust proxy', 1);
 
 // Core Middleware
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: { policy: 'cross-origin' }
+}));
 app.use(cors({
   origin: config.frontendUrl,
   credentials: true,
