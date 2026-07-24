@@ -13,6 +13,10 @@ const errorHandler = (err, req, res, next) => {
     return sendError(res, err.statusCode, err.message);
   }
 
+  if (err.name === 'MulterError' || err.message.includes('Only JPEG, PNG, and WebP images')) {
+    return sendError(res, 400, err.message);
+  }
+
   // Handle unexpected or internal errors
   const statusCode = err.statusCode || 500;
   
