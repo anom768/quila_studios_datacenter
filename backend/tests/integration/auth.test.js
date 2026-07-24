@@ -53,7 +53,7 @@ describe('Auth Module Integration Tests', () => {
       const res = await request.post('/api/auth/login').set('X-Forwarded-For', getNextIp()).send({ username: 'testuser', password: 'wrongpassword' });
       
       expect(res.status).toBe(401);
-      expect(res.body.error).toBe('Invalid username or password'); // Assuming this is the generic message
+      expect(res.body.error).toBe('Invalid username or password'); // Generic error message for invalid credentials
     });
 
     it('4. Non-existent username → 401, the exact same generic error message as #3', async () => {
