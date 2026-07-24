@@ -98,13 +98,13 @@ export default function StaffPage() {
         )}
       </div>
 
-      <div className="bg-white p-4 rounded-lg shadow mb-6 space-y-4 sm:space-y-0 sm:flex sm:gap-4 sm:items-end">
+      <div className="bg-white p-4 rounded-lg shadow mb-6 space-y-4 sm:space-y-0 sm:flex sm:gap-4 sm:items-end text-gray-900">
         <div className="flex-1">
           <label className="block text-sm font-medium text-gray-700 mb-1">Search</label>
           <input
             type="text"
             placeholder="Search name or ID..."
-            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border p-2"
+            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border p-2 text-gray-900 bg-white"
             value={search}
             onChange={(e) => { setSearch(e.target.value); setPage(1); }}
           />
@@ -112,7 +112,7 @@ export default function StaffPage() {
         <div className="w-full sm:w-48">
           <label className="block text-sm font-medium text-gray-700 mb-1">Status</label>
           <select
-            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border p-2"
+            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border p-2 text-gray-900 bg-white"
             value={status}
             onChange={(e) => { setStatus(e.target.value); setPage(1); }}
           >
@@ -125,7 +125,7 @@ export default function StaffPage() {
         <div className="w-full sm:w-48">
           <label className="block text-sm font-medium text-gray-700 mb-1">Type</label>
           <select
-            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border p-2"
+            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border p-2 text-gray-900 bg-white"
             value={employmentType}
             onChange={(e) => { setEmploymentType(e.target.value); setPage(1); }}
           >
@@ -138,7 +138,7 @@ export default function StaffPage() {
         <div className="w-full sm:w-48">
           <label className="block text-sm font-medium text-gray-700 mb-1">Position</label>
           <select
-            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border p-2"
+            className="w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm border p-2 text-gray-900 bg-white"
             value={position}
             onChange={(e) => { setPosition(e.target.value); setPage(1); }}
           >

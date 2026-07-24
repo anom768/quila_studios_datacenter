@@ -15,7 +15,7 @@ export default function StaffTable({ data, role, onDeleteClick }) {
   }
 
   return (
-    <div className="bg-white shadow rounded-lg overflow-x-auto">
+    <div className="bg-white shadow rounded-lg overflow-x-auto text-gray-900">
       <table className="min-w-full divide-y divide-gray-200">
         <thead className="bg-gray-50">
           <tr>
