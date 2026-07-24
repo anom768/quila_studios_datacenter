@@ -31,10 +31,25 @@ export default function StaffForm({ mode, initialData, onSubmit, error }) {
       return;
     }
 
+    if (formData.fullName.length < 3 || formData.fullName.length > 100) {
+      setValidationError('Full Name must be between 3 and 100 characters.');
+      return;
+    }
+
     // Email basic validation
     if (!/\S+@\S+\.\S+/.test(formData.email)) {
       setValidationError('Please enter a valid email address.');
       return;
+    }
+
+    // Exit date validation
+    if (formData.exitDate) {
+      const join = new Date(formData.joinDate);
+      const exit = new Date(formData.exitDate);
+      if (exit < join) {
+        setValidationError('Exit Date cannot be before Join Date.');
+        return;
+      }
     }
 
     const payload = { ...formData };
