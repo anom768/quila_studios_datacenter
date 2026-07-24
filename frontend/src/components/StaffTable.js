@@ -36,7 +36,7 @@ export default function StaffTable({ data, role, onDeleteClick }) {
               <td className="px-6 py-4 whitespace-nowrap">
                 <div className="h-10 w-10 flex-shrink-0">
                   {staff.photoPath ? (
-                    <img className="h-10 w-10 rounded-full object-cover" src={`${API_URL}/uploads/${staff.photoPath}`} alt={staff.fullName} />
+                    <img className="h-10 w-10 rounded-full object-cover" src={`${API_URL}/${staff.photoPath}`} alt={staff.fullName} />
                   ) : (
                     <div className="h-10 w-10 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 font-bold">
                       {staff.fullName.charAt(0)}
