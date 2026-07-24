@@ -53,7 +53,7 @@ export default function StaffForm({ mode, initialData, onSubmit, error }) {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow p-8 max-w-2xl mx-auto mb-8">
+    <div className="bg-white rounded-xl shadow p-8 max-w-2xl mx-auto mb-8 text-gray-900">
       <h2 className="text-2xl font-bold mb-6 text-gray-900">{mode === 'create' ? 'Add New Staff' : 'Edit Staff'}</h2>
       
       {(error || validationError) && (
