@@ -96,7 +96,7 @@ describe('Staff Module Integration Tests', () => {
       expect(res.body.data.page).toBe(2);
       expect(res.body.data.total).toBe(3);
       expect(res.body.data.items.length).toBe(1);
-      expect(res.body.data.items[0].fullName).toBe('A'); // Ordered by createdAt desc, so 'A' is oldest. Wait, actually order is not specified explicitly in prompt, but let's just check length.
+      expect(res.body.data.items[0].fullName).toBe('A'); // staffService orders by createdAt desc, so page 2 (the last item) is the oldest record, 'A'
     });
 
     it('8. A staff-role user can access this endpoint (200)', async () => {
